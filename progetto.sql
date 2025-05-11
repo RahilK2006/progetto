@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 04, 2025 alle 13:57
+-- Creato il: Mag 12, 2025 alle 00:06
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `progetto`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `cognome` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dump dei dati per la tabella `admin`
+--
+
+INSERT INTO `admin` (`id`, `nome`, `cognome`, `username`, `password`) VALUES
+(1, '2', '2', '2', 'c81e728d9d4c2f636f067f89cc14862c');
 
 -- --------------------------------------------------------
 
@@ -54,9 +75,22 @@ CREATE TABLE `camion` (
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `password` varchar(100) DEFAULT NULL
+  `cognome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `azienda` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dump dei dati per la tabella `cliente`
+--
+
+INSERT INTO `cliente` (`id`, `nome`, `cognome`, `email`, `username`, `password`, `azienda`) VALUES
+(1, '1', '1', '1', '1', 'c4ca4238a0b923820dcc509a6f75849b', '1'),
+(2, '1', '2', '2@hg', 'tre', 'c4ca4238a0b923820dcc509a6f75849b', '1'),
+(3, 'rahil', '2', '2@hg', '2', 'e77dbaf6759253c7c6d0efc5690369c7', '1'),
+(4, '2', '32', '423@g', '4234', 'faa9afea49ef2ff029a833cccc778fd0', '');
 
 -- --------------------------------------------------------
 
@@ -67,8 +101,18 @@ CREATE TABLE `cliente` (
 CREATE TABLE `conducente` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `cognome` varchar(100) NOT NULL
+  `cognome` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dump dei dati per la tabella `conducente`
+--
+
+INSERT INTO `conducente` (`id`, `nome`, `cognome`, `username`, `password`, `email`) VALUES
+(1, '3', '3', '3', 'eccbc87e4b5ce2fe28308fd9f2a7baf3', '3');
 
 -- --------------------------------------------------------
 
@@ -78,8 +122,20 @@ CREATE TABLE `conducente` (
 
 CREATE TABLE `fornitore` (
   `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL
+  `nome` varchar(100) NOT NULL,
+  `cognome` varchar(100) NOT NULL,
+  `azienda` varchar(100) DEFAULT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dump dei dati per la tabella `fornitore`
+--
+
+INSERT INTO `fornitore` (`id`, `nome`, `cognome`, `azienda`, `username`, `password`, `email`) VALUES
+(1, '4', '4', '4', '4', 'a87ff679a2f3e71d9181a67b7542122c', '4');
 
 -- --------------------------------------------------------
 
@@ -168,6 +224,12 @@ CREATE TABLE `viaggio` (
 --
 
 --
+-- Indici per le tabelle `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indici per le tabelle `buono_di_consegna`
 --
 ALTER TABLE `buono_di_consegna`
@@ -185,19 +247,23 @@ ALTER TABLE `camion`
 -- Indici per le tabelle `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indici per le tabelle `conducente`
 --
 ALTER TABLE `conducente`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `username_2` (`username`);
 
 --
 -- Indici per le tabelle `fornitore`
 --
 ALTER TABLE `fornitore`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indici per le tabelle `guida`
@@ -243,6 +309,76 @@ ALTER TABLE `viaggio`
   ADD KEY `id_nave` (`id_nave`),
   ADD KEY `porto_partenza` (`porto_partenza`),
   ADD KEY `porto_arrivo` (`porto_arrivo`);
+
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
+
+--
+-- AUTO_INCREMENT per la tabella `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT per la tabella `buono_di_consegna`
+--
+ALTER TABLE `buono_di_consegna`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT per la tabella `conducente`
+--
+ALTER TABLE `conducente`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT per la tabella `fornitore`
+--
+ALTER TABLE `fornitore`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT per la tabella `guida`
+--
+ALTER TABLE `guida`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `nave`
+--
+ALTER TABLE `nave`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `polizzacarico`
+--
+ALTER TABLE `polizzacarico`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `porto`
+--
+ALTER TABLE `porto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `transazione`
+--
+ALTER TABLE `transazione`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `viaggio`
+--
+ALTER TABLE `viaggio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Limiti per le tabelle scaricate

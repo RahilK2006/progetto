@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettagli Cliente</title>
+    <script src="cliente.js" defer></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .cliente-container {
+            width: 400px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .cliente-details {
+            margin-bottom: 15px;
+        }
+        .cliente-details span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cliente-container">
+    <h2>Dettagli Cliente</h2>
+    <div id="clienteDetails">
+        <!-- I dettagli del cliente verranno inseriti qui -->
+    </div>
+
+<button id="logoutBtn">Logout</button>
+
+<script src="../logout.js"></script>
+</div>
+
+</body>
+</html>
