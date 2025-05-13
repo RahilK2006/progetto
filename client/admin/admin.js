@@ -14,8 +14,23 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = "../index.html"; // Redirigi al login se non è loggato
   }
 
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    sessionStorage.removeItem("user");
-        window.location.href = '../index.html';
-  });
+
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const modificaBtn = document.getElementById("modNave");
+
+  if (modificaBtn) {
+    modificaBtn.addEventListener("click", () => {
+      window.location.href = "modificaNave.html";  // Reindirizza al login
+    });
+  } 
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const modificaBtn = document.getElementById("modPorti");
+
+  if (modificaBtn) {
+    modificaBtn.addEventListener("click", () => {
+      window.location.href = "modificaPorto.html";  // Reindirizza al login
+    });
+  } 
 });

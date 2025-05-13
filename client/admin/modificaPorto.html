@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestione Porti</title>
+  <style>
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 8px; border: 1px solid #ccc; }
+    td[contenteditable="true"] { background-color: #f0f8ff; }
+  </style>
+</head>
+<body>
+  <h1>Gestione Porti</h1>
+
+  <div>
+    <h2>Aggiungi Porto</h2>
+    <input type="text" id="portoNome" placeholder="Nome porto">
+    <input type="text" id="portoNazione" placeholder="Nazione">
+    <input type="text" id="portoLinea" placeholder="Linea">
+    <button id="aggiungiBtn">Aggiungi</button>
+  </div>
+
+  <div>
+    <h2>Elenco Porti</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome Porto</th>
+          <th>Nazione</th>
+          <th>Linea</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody id="tabellaPorti"></tbody>
+    </table>
+  </div>
+
+  <button id="logoutBtn">Logout</button>
+
+  <script src="../classi/Porto.js"></script>
+  <script src="funzioni/funzioniPorto.js"></script>
+</body>
+</html>

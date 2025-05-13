@@ -21,10 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = "../index.html";
   }
 
-  // Funzione di logout
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    sessionStorage.removeItem("user");  // Rimuove il cliente dalla sessione
-    window.location.href = '../index.html';  // Redirige alla pagina di login
-  });
+
 });
 

@@ -16,8 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = "../index.html"; // Redirigi al login se non è loggato
   }
 
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    sessionStorage.removeItem("user");
-        window.location.href = '../index.html';
-  });
+
 });

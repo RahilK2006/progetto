@@ -21,9 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Logout
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    sessionStorage.removeItem("user");  // Rimuove l'utente dalla sessione
-    sessionStorage.removeItem("ruolo"); // Rimuove il ruolo
-    window.location.href = '../index.html';  // Redirige al login
-  });
+
 });

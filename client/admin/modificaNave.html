@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestione Navi</title>
+  <style>
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 8px; border: 1px solid #ccc; }
+    td[contenteditable="true"] { background-color: #f0f8ff; }
+  </style>
+</head>
+<body>
+  <h1>Gestione Navi</h1>
+
+  <div>
+    <h2>Aggiungi Nave</h2>
+    <input type="text" id="nuovaNaveNome" placeholder="Nome nave" required>
+    <button id="aggiungiBtn">Aggiungi</button>
+  </div>
+
+  <div>
+    <h2>Elenco Navi</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody id="tabellaNavi"></tbody>
+    </table>
+  </div>
+
+  <button id="logoutBtn">Logout</button>
+
+  <script src="../classi/Nave.js"></script>
+  <script src="funzioni/funzioniNave.js"></script>
+</body>
+</html>
