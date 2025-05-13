@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('loginForm');
   const errorMessage = document.getElementById('loginMessage');
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Effettuare la richiesta di login
-    fetch(url)
+    fetch(url,{method:'get'})
       .then(response => {
         if (!response.ok) {
           throw new Error("Credenziali errate");

@@ -1,4 +1,4 @@
-package com.progetto.models;
+package com.example.demo.Model;
 
 
 public class PolizzaCarico {

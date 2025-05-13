@@ -99,15 +99,15 @@ public class ClienteDao {
             stmt.setString(2, cliente.getCognome());
             stmt.setString(3, cliente.getEmail());
             stmt.setString(4, cliente.getUsername());
-        stmt.setString(5, Utility.md5(cliente.getPassword())); 
+            stmt.setString(5, Utility.md5(cliente.getPassword())); 
             stmt.setString(6, cliente.getAzienda());
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
-                success = true;  // Cliente inserito correttamente
+                success = true; 
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return success;  // Restituisce true se inserito con successo, false altrimenti
+        return success;  
     }
 }

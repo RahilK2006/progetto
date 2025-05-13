@@ -30,7 +30,6 @@ public class ClienteController {
             throw new RuntimeException("Cliente non trovato con id: " + id);
         }
     }
-    @CrossOrigin(origins = "*")
     @GetMapping("/login")
     public Cliente login(@RequestParam String username, @RequestParam String password) {
         Cliente cliente = clienteDao.login(username, password);
@@ -41,7 +40,6 @@ public class ClienteController {
         }
     }
 
-    @CrossOrigin(origins = "*")
     @PostMapping("/register")
     public Cliente registrazione(@RequestBody Cliente cliente) {
         boolean risultato = clienteDao.inserisci(cliente);
