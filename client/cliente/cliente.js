@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const clienteSalvato = sessionStorage.getItem("user"); // Recupera i dati del cliente dalla sessione
+  const ruolo = sessionStorage.getItem("ruolo"); // Recupera i dati del cliente dalla sessione
+
   const clienteDetails = document.getElementById("clienteDetails");
   
-  if (clienteSalvato) {
+  if (clienteSalvato && ruolo=="cliente") {
     const cliente = JSON.parse(clienteSalvato);  // Converte i dati da JSON a oggetto cliente
     
     // Visualizza i dettagli del cliente
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   } else {
     // Se il cliente non è loggato, reindirizza alla pagina di login
-    window.location.href = "login.html";
+    window.location.href = "../index.html";
   }
 
   // Funzione di logout
@@ -25,3 +27,4 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = '../index.html';  // Redirige alla pagina di login
   });
 });
+

@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const fornitoreSalvato = sessionStorage.getItem("user");
   const fornitoreDetails = document.getElementById("fornitoreDetails");
-  
-  if (fornitoreSalvato) {
+    const ruolo = sessionStorage.getItem("ruolo"); // Recupera i dati del cliente dalla sessione
+
+  if (fornitoreSalvato && ruolo=="fornitore") {
     const fornitore = JSON.parse(fornitoreSalvato);
     fornitoreDetails.innerHTML = `
       <div class="fornitore-details"><span>ID:</span> ${fornitore.id}</div>
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="fornitore-details"><span>Email:</span> ${fornitore.email}</div>
     `;
   } else {
-    window.location.href = "login.html"; // Redirigi al login se non è loggato
+    window.location.href = "../index.html"; // Redirigi al login se non è loggato
   }
 
   document.getElementById('logoutBtn').addEventListener('click', () => {

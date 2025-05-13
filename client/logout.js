@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
-      sessionStorage.removeItem("cliente"); // Rimuove l'utente
-      window.location.href = "../index.html";  // Reindirizza al login
+      sessionStorage.removeItem("user");  // Rimuove l'utente
+      sessionStorage.removeItem("ruolo"); // Rimuove il ruolo
+      window.location.href = "index.html";  // Reindirizza al login
     });
   } else {
     console.warn("Bottone logout non trovato.");
