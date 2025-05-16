@@ -9,12 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mostra i dettagli del conducente
     conducenteDetails.innerHTML = `
-      <div class="conducente-details"><span>ID:</span> ${conducente.id}</div>
-      <div class="conducente-details"><span>Nome:</span> ${conducente.nome}</div>
-      <div class="conducente-details"><span>Cognome:</span> ${conducente.cognome}</div>
-      <div class="conducente-details"><span>Username:</span> ${conducente.username}</div>
-      <div class="conducente-details"><span>Email:</span> ${conducente.email}</div>
-    `;
+      <div class="card-header bg-success text-white">
+      <h5 class="mb-0">Dettagli Conducente</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>ID:</strong> ${conducente.id}</li>
+      <li class="list-group-item"><strong>Nome:</strong> ${conducente.nome}</li>
+      <li class="list-group-item"><strong>Cognome:</strong> ${conducente.cognome}</li>
+      <li class="list-group-item"><strong>Email:</strong> ${conducente.email}</li>
+      <li class="list-group-item"><strong>Username:</strong> ${conducente.username}</li>
+    </ul>
+  `;
   } else {
     // Se non è loggato o non ha il ruolo corretto, reindirizza al login
     window.location.href = "../index.html";

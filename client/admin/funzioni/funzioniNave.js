@@ -3,10 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabella = document.getElementById("tabellaNavi");
   const nomeInput = document.getElementById("nuovaNaveNome");
 
-  // Carica navi all'avvio
   caricaNavi();
 
-  // Aggiunta nuova nave
   document.getElementById("aggiungiBtn").addEventListener("click", () => {
     const nome = nomeInput.value.trim();
     if (!nome) return alert("Inserisci un nome valido.");
@@ -16,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`${apiBase}/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(nuovaNave)
+      body: JSON.stringify(nuovaNave.toJSON())  // ✅ semplificato
     })
       .then(res => {
         if (!res.ok) throw new Error("Errore aggiunta");
@@ -26,22 +24,18 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(err => alert("Errore: " + err.message));
   });
 
-  // Logout
   document.getElementById("logoutBtn").addEventListener("click", () => {
     sessionStorage.clear();
     window.location.href = "../index.html";
   });
 
-  // Caricamento e rendering
   function caricaNavi() {
     fetch(`${apiBase}/getAll`)
       .then(res => res.json())
       .then(navi => {
         tabella.innerHTML = "";
-        navi.forEach(naveData => {
-          const nave = new Nave(naveData.id, naveData.nome);
+        navi.map(Nave.fromJSON).forEach(nave => {  // ✅ semplificato
           const row = document.createElement("tr");
-
           row.innerHTML = `
             <td>${nave.id}</td>
             <td contenteditable="true" data-id="${nave.id}" class="editable">${nave.nome}</td>
@@ -50,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
               <button class="eliminaBtn" data-id="${nave.id}">Elimina</button>
             </td>
           `;
-
           tabella.appendChild(row);
         });
 
@@ -64,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const id = btn.getAttribute("data-id");
         const cellaNome = document.querySelector(`td[data-id="${id}"]`);
         const nuovoNome = cellaNome.innerText.trim();
-
         if (!nuovoNome) return alert("Il nome non può essere vuoto.");
 
         const naveAggiornata = new Nave(parseInt(id), nuovoNome);
@@ -72,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(`${apiBase}/update`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(naveAggiornata)
+          body: JSON.stringify(naveAggiornata.toJSON())  // ✅ semplificato
         })
           .then(res => {
             if (!res.ok) throw new Error("Errore aggiornamento");
@@ -97,3 +89,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+

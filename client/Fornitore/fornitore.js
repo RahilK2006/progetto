@@ -5,16 +5,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (fornitoreSalvato && ruolo=="fornitore") {
     const fornitore = JSON.parse(fornitoreSalvato);
-    fornitoreDetails.innerHTML = `
-      <div class="fornitore-details"><span>ID:</span> ${fornitore.id}</div>
-      <div class="fornitore-details"><span>Nome:</span> ${fornitore.nome}</div>
-      <div class="fornitore-details"><span>Cognome:</span> ${fornitore.cognome}</div>
-      <div class="fornitore-details"><span>Azienda:</span> ${fornitore.azienda}</div>
-      <div class="fornitore-details"><span>Email:</span> ${fornitore.email}</div>
-    `;
+  fornitoreDetails.innerHTML = `
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Dettagli Fornitore</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>ID:</strong> ${fornitore.id}</li>
+        <li class="list-group-item"><strong>Nome:</strong> ${fornitore.nome}</li>
+        <li class="list-group-item"><strong>Cognome:</strong> ${fornitore.cognome}</li>
+        <li class="list-group-item"><strong>Azienda:</strong> ${fornitore.azienda}</li>
+        <li class="list-group-item"><strong>Email:</strong> ${fornitore.email}</li>
+      </ul>
+    </div>
+  `;
   } else {
     window.location.href = "../index.html"; // Redirigi al login se non è loggato
   }
 
 
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const modificaBtn = document.getElementById("modMerce");
+
+  if (modificaBtn) {
+    modificaBtn.addEventListener("click", () => {
+      window.location.href = "modificaMerce.html";  // Reindirizza al login
+    });
+  } 
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const modificaBtn = document.getElementById("modPolizze");
+
+  if (modificaBtn) {
+    modificaBtn.addEventListener("click", () => {
+      window.location.href = "modificaPolizza.html";  // Reindirizza al login
+    });
+  } 
 });

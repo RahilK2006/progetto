@@ -1,45 +1,50 @@
 package com.example.demo.Model;
 
-
 public class PolizzaCarico {
     private int id;
     private int id_viaggio;
     private int id_fornitore;
+    private int id_cliente;
     private int tipologia_merce;
     private double peso_totale;
-    private double giorni_franchigia;
+    private int giorni_franchigia;
     private double tariffa_giornaliera;
 
     public PolizzaCarico() {}
 
-    public PolizzaCarico(int id, int idViaggio, int idFornitore, int tipologiaMerce, double pesoTotale, double giorniFranchigia, double tariffaGiornaliera) {
+    public PolizzaCarico(int id, int id_viaggio, int id_fornitore, int id_cliente, int tipologia_merce, double peso_totale, int giorni_franchigia, double tariffa_giornaliera) {
         this.id = id;
-        this.id_viaggio = idViaggio;
-        this.id_fornitore = idFornitore;
-        this.tipologia_merce = tipologiaMerce;
-        this.peso_totale = pesoTotale;
-        this.giorni_franchigia = giorniFranchigia;
-        this.tariffa_giornaliera = tariffaGiornaliera;
+        this.id_viaggio = id_viaggio;
+        this.id_fornitore = id_fornitore;
+        this.id_cliente = id_cliente;
+        this.tipologia_merce = tipologia_merce;
+        this.peso_totale = peso_totale;
+        this.giorni_franchigia = giorni_franchigia;
+        this.tariffa_giornaliera = tariffa_giornaliera;
     }
 
+    // Getters e Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
     public int getId_viaggio() { return id_viaggio; }
-    public void setId_viaggio(int idViaggio) { this.id_viaggio = idViaggio; }
+    public void setId_viaggio(int id_viaggio) { this.id_viaggio = id_viaggio; }
 
     public int getId_fornitore() { return id_fornitore; }
-    public void setId_fornitore(int idFornitore) { this.id_fornitore = idFornitore; }
+    public void setId_fornitore(int id_fornitore) { this.id_fornitore = id_fornitore; }
+
+    public int getId_cliente() { return id_cliente; }
+    public void setId_cliente(int id_cliente) { this.id_cliente = id_cliente; }
 
     public int getTipologia_merce() { return tipologia_merce; }
-    public void setTipologiaMerce(int tipologiaMerce) { this.tipologia_merce = tipologiaMerce; }
+    public void setTipologia_merce(int tipologia_merce) { this.tipologia_merce = tipologia_merce; }
 
     public double getPeso_totale() { return peso_totale; }
-    public void setPeso_totale(double pesoTotale) { this.peso_totale = pesoTotale; }
+    public void setPeso_totale(double peso_totale) { this.peso_totale = peso_totale; }
 
-    public double getGiorni_franchigia() { return giorni_franchigia; }
-    public void setGiorni_franchigia(double giorniFranchigia) { this.giorni_franchigia = giorniFranchigia; }
+    public int getGiorni_franchigia() { return giorni_franchigia; }
+    public void setGiorni_franchigia(int giorni_franchigia) { this.giorni_franchigia = giorni_franchigia; }
 
     public double getTariffa_giornaliera() { return tariffa_giornaliera; }
-    public void setTariffa_giornaliera(double tariffaGiornaliera) { this.tariffa_giornaliera = tariffaGiornaliera; }
+    public void setTariffa_giornaliera(double tariffa_giornaliera) { this.tariffa_giornaliera = tariffa_giornaliera; }
 }

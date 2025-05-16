@@ -1,66 +1,40 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin</title>
-    <script src="admin.js" defer></script>
-    <script src="../logout.js"></script>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f9;
-        }
-        .admin-container {
-            width: 600px;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            text-align: center;
-        }
-        .admin-details {
-            margin-bottom: 15px;
-        }
-        .admin-details span {
-            font-weight: bold;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Admin - Bootstrap</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
+<body class="bg-light">
 
-<div class="admin-container">
-    <h2>Dashboard Admin</h2>
-    <div id="adminDetails">
-        <!-- I dettagli dell'admin verranno inseriti qui -->
+  <div class="container py-5">
+    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+      <div class="card-header text-center bg-primary text-white">
+        <h2>Dashboard Admin</h2>
+      </div>
+      <div class="card-body">
+        <div id="adminDetails" class="card my-4 mx-auto" style="max-width: 350px;">
+        <!-- I dettagli verranno inseriti qui via JS -->
+        </div>
+
+        <div class="d-grid gap-3">
+          <button id="modNave" class="btn btn-success">Modifica Navi</button>
+          <button id="modPorti" class="btn btn-success">Modifica Porti</button>
+          <button id="modLinea" class="btn btn-success">Modifica Linee</button>
+          <button id="modViaggi" class="btn btn-success">Modifica Viaggi</button>
+          <button id="modBuoni" class="btn btn-success">Modifica Buoni</button>
+          <button id="logoutBtn" class="btn btn-danger">Logout</button>
+        </div>
+      </div>
     </div>
-    <button id="modNave">modifica navi</button>
-        <button id="modPorti">modifica porti</button>
+  </div>
 
-    <button id="logoutBtn">Logout</button>
-</div>
-
+  <!-- Bootstrap JS (opzionale, per componenti JS) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="admin.js" defer></script>
+  <script src="../logout.js"></script>
 </body>
 </html>

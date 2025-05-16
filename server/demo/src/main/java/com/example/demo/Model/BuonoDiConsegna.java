@@ -1,36 +1,62 @@
 package com.example.demo.Model;
 
-import java.util.Date;
-
 public class BuonoDiConsegna {
     private int id;
-    private int idPolizza;
-    private int idCliente;
-    private double pesoRiferito;
-    private Date dataEmissione;
+    private int id_polizza;
+    private int id_cliente;
+    private double peso_riferito;
+    private String data_emissione; // data come stringa
 
+    // Costruttore vuoto
     public BuonoDiConsegna() {}
 
-    public BuonoDiConsegna(int id, int idPolizza, int idCliente, double pesoRiferito, Date dataEmissione) {
+    // Costruttore completo
+    public BuonoDiConsegna(int id, int id_polizza, int id_cliente, double peso_riferito, String data_emissione) {
         this.id = id;
-        this.idPolizza = idPolizza;
-        this.idCliente = idCliente;
-        this.pesoRiferito = pesoRiferito;
-        this.dataEmissione = dataEmissione;
+        this.id_polizza = id_polizza;
+        this.id_cliente = id_cliente;
+        this.peso_riferito = peso_riferito;
+        this.data_emissione = data_emissione;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    // Getter e Setter
+    public int getId() {
+        return id;
+    }
 
-    public int getIdPolizza() { return idPolizza; }
-    public void setIdPolizza(int idPolizza) { this.idPolizza = idPolizza; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public int getIdCliente() { return idCliente; }
-    public void setIdCliente(int idCliente) { this.idCliente = idCliente; }
+    public int getId_polizza() {
+        return id_polizza;
+    }
 
-    public double getPesoRiferito() { return pesoRiferito; }
-    public void setPesoRiferito(double pesoRiferito) { this.pesoRiferito = pesoRiferito; }
+    public void setId_polizza(int id_polizza) {
+        this.id_polizza = id_polizza;
+    }
 
-    public Date getDataEmissione() { return dataEmissione; }
-    public void setDataEmissione(Date dataEmissione) { this.dataEmissione = dataEmissione; }
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
+    }
+
+    public double getPeso_riferito() {
+        return peso_riferito;
+    }
+
+    public void setPeso_riferito(double peso_riferito) {
+        this.peso_riferito = peso_riferito;
+    }
+
+    public String getData_emissione() {
+        return data_emissione;
+    }
+
+    public void setData_emissione(String data_emissione) {
+        this.data_emissione = data_emissione;
+    }
 }

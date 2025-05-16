@@ -9,12 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Visualizza i dettagli del cliente
     clienteDetails.innerHTML = `
-      <div class="cliente-details"><span>ID:</span> ${cliente.id}</div>
-      <div class="cliente-details"><span>Nome:</span> ${cliente.nome}</div>
-      <div class="cliente-details"><span>Cognome:</span> ${cliente.cognome}</div>
-      <div class="cliente-details"><span>Email:</span> ${cliente.email}</div>
-      <div class="cliente-details"><span>Username:</span> ${cliente.username}</div>
-      <div class="cliente-details"><span>Azienda:</span> ${cliente.azienda}</div>
+      <div class="card-header bg-success text-white">
+        <h5 class="mb-0">Dettagli Cliente</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>ID:</strong> ${cliente.id}</li>
+        <li class="list-group-item"><strong>Nome:</strong> ${cliente.nome}</li>
+        <li class="list-group-item"><strong>Cognome:</strong> ${cliente.cognome}</li>
+        <li class="list-group-item"><strong>Email:</strong> ${cliente.email}</li>
+        <li class="list-group-item"><strong>Username:</strong> ${cliente.username}</li>
+        <li class="list-group-item"><strong>Azienda:</strong> ${cliente.azienda}</li>
+      </ul>
     `;
   } else {
     // Se il cliente non è loggato, reindirizza alla pagina di login
@@ -23,4 +28,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modificaBtn = document.getElementById("richiestaBuoni");
+
+  if (modificaBtn) {
+    modificaBtn.addEventListener("click", () => {
+      window.location.href = "richiestaBuoni.html";  // Reindirizza al login
+    });
+  } 
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modificaBtn = document.getElementById("buoni");
+
+  if (modificaBtn) {
+    modificaBtn.addEventListener("click", () => {
+      window.location.href = "buoniCliente.html";  // Reindirizza al login
+    });
+  } 
+});
+
+
 
